@@ -55,7 +55,7 @@ export default function About() {
             </p>
             <h3>5. Closing Remarks</h3>
             <p>
-                I tried to limit my time on this exercise, so there isn't much in the way of individual components, scoped CSS, page titles (thus Vite + React) or a change to the favicon.
+                I tried to limit my time on this exercise, so there isn't much in the way of individual components, scoped CSS, page titles or having a favicon.
                 I also didn't add any form validation, or stop the user from entering duplicate task names.
             </p>
             <p>
