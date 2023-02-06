@@ -1,0 +1,314 @@
+/* Colors! */
+:root {
+  --silver-50: #757780;
+  --silver-25: #3b3c40;
+  --silver-0: #17181A;
+  --silver-100: #F2F2F1;
+  --silver-200: #F8F8FF;
+  --silver-75: #BABBC0;
+
+  --sage-200: #fafaf6;
+  --sage-100: #f6f5ec;
+  --sage-75: #dbd6b4;
+  --sage-50: #d2cca1;
+  --sage-25: #7e7a61;
+  --sage-0: #696651;
+
+  --blue-100: #C3D6D9;
+  --blue-75: #88ADB3;
+  --blue-50: #387780;
+  --blue-25: #2D5F66;
+  --blue-0: #1C3C40;
+
+  --red-100: #f18397;
+  --red-75: #ed5a74;
+  --red-50: #E83151;
+  --red-25: #ba2741;
+  --red-0: #8b1d31;
+
+  --green-100: #ddf6ee;
+  --green-75: #a7e8d6;
+  --green-50: #17ceae;
+  --green-25: #0e9880;
+  --green-0: #044e41;
+
+  --border-radius: 3px;
+  --sidebar-width: 200px;
+}
+
+/* Base CSS */
+* {
+  box-sizing: border-box;
+}
+
+body, input, button {
+  font-family: Arial, sans-serif!important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--silver-33);
+}
+
+h1,
+h2,
+h3 {
+  min-height: 2.5rem;
+  font-weight: 300;
+  margin: 0 0 .25rem;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.6rem;
+  color: var(--sage-0);
+}
+
+h2 {
+  font-size: 1.4rem;
+  color: var(--sage-25);
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--sage-25);
+}
+
+
+a {
+  color: var(--blue-50);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--blue-25);
+}
+
+p {
+  margin: 0 0 .5rem;
+  padding: 0;
+  font-size: .9rem;
+  max-width: 600px;
+}
+
+p+h3 {
+  margin-top: 1.5rem;
+}
+
+/* Layout CSS */
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+}
+
+.side-liner,
+.content,
+.footer {
+  padding: 1rem;
+}
+
+.side {
+  position: relative;
+  background: var(--silver-100);
+}
+
+.side-liner {
+  width: var(--sidebar-width);
+  position: fixed;
+}
+
+.global-nav>a {
+  position: relative;
+  left: -2px;
+  display: block;
+  padding: 2px 5px;
+  margin-bottom: .25rem;
+  border-radius: var(--border-radius);
+}
+
+.global-nav>a.active {
+  display: block;
+  color: var(--silver-200);
+  background: var(--sage-0);
+}
+
+.main {
+  background: var(--silver-200);
+  display: grid;
+  grid-template-rows: 1fr 3rem;
+}
+
+.footer {
+  font-size: .8rem;
+  font-weight: 300;
+  color: var(--silver-50);
+  text-align: center;
+}
+
+/* Forms */
+input,
+button {
+  border-radius: var(--border-radius);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+input {
+  border: 1px solid var(--silver-50);
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+button {
+  border: 1px solid var(--blue-50);
+  color: var(--silver-200);
+  background: var(--blue-50);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 500;
+}
+
+button:hover {
+  cursor: pointer;
+  border-color: var(--blue-25);
+  background: var(--blue-25);
+}
+
+button:active {
+  cursor: pointer;
+  border-color: var(--blue-0);
+  background: var(--blue-0);
+}
+
+button:active .button-text {
+  position: relative;
+  top: 1px;
+}
+
+/* Tasks! */
+.create-task {
+  display: flex;
+  align-items: baseline;
+}
+
+.create-task>* {
+  margin-right: .5rem;
+}
+
+.all-tasks {
+  margin-top: 1rem;
+}
+
+.tasks {
+  display: inline-grid;
+  grid-auto-rows: 1fr;
+}
+
+.task:before {
+  content: "";
+  display: flex;
+  align-items: center;
+}
+
+.task-width {
+  width: 22rem;
+}
+.task-width, .task {
+  max-width: 22rem;
+}
+.task-item {
+  grid-column: 1;
+}
+.task {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0 .5rem;
+  padding: .75rem 1rem;
+  background: var(--sage-100);
+  color: var(--sage-0);
+  border: var(--sage-0);
+  text-align: left;
+  border: 1px solid var(--sage-75);
+  font-size: .8rem;
+  font-weight: 400;
+  height: 3rem;
+  min-width: 200px;
+}
+
+button.task:hover {
+  border: 1px solid var(--sage-25);
+  background: var(--sage-200);
+}
+
+.task.complete {
+  background: var(--green-100);
+  color: var(--green-0);
+  border-color: var(-gree-25);
+}
+
+.task::before {
+  content: "";
+  margin-right: .25rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.task.complete::before {
+  content: "✓";
+  margin-right: .25rem;
+  color: var(--green-50);
+  font-weight: 600;
+  width: 1rem;
+  height: 1rem;
+}
+
+
+/* This is where things get wild with sibling selectors. Let's go! */
+button.task.complete:hover::before {
+  position: relative;
+  top: -1px;
+  content: "⨯";
+  color: var(--red-0);
+}
+
+button.task.complete:hover {
+  background: var(--sage-200);
+}
+button.task.transition {
+  display: none;
+}
+button.task.transition + div.task {
+  display: flex;
+}
+button.task + div.task {
+  display: none;
+}
+button.task + div.task::before {
+  display: none;
+}
+.transition-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-right: .25em;
+}
+.transition-svg svg {
+  width: 95%;
+  height: auto;
+}
+.complete .transition-svg svg {
+  filter: invert(100%); 
+  opacity: .4;
+}
